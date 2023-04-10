@@ -37,5 +37,12 @@ Route::prefix('admin')->name('admin.')->group(function() {
     });
 });
 
+Route::get('/product/{id}', [ProductController::class, 'get'])->name('productDetails');
+
+Route::get('/about', [PageController::class, 'about'])->name('aboutPage');
+Route::get('/partners', [PageController::class, 'partners'])->name('partnersPage');
+Route::get('/catalog', [PageController::class, 'catalog'])->name('catalogPage');
+Route::get('/contacts', [PageController::class, 'contacts'])->name('contactsPage');
+
 
 Route::get('/', [PageController::class, 'home'])->name('home');

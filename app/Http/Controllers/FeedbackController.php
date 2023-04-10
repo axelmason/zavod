@@ -15,9 +15,12 @@ class FeedbackController extends Controller
 
         $message = sprintf("*Новое сообщение.*\n\nИмя: *%s*\nEmail: `%s`\n\nСообщение: \n%s", $data['name'], $data['email'], $data['message']);
         $bot = new BotController();
-        $bot->sendMessage($message, true);
+        $sent = $bot->sendMessage($message, true);
+        if($sent) {
+            return response()->json(['status' => 'success', 'message' => 'Сообщение отправлено!']);
+        }
 
-        return response()->json(['status' => 'success', 'message' => 'Сообщение отправлено!']);
+        return response()->json(['status' => 'failed', 'message' => 'Сообщение не было отправлено отправлено!'], 422);
     }
 
     public function list()

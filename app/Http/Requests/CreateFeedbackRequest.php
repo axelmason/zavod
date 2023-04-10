@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class CreateFeedbackRequest extends FormRequest
 {
@@ -28,5 +29,13 @@ class CreateFeedbackRequest extends FormRequest
             'email' => 'required|email',
             'message' => 'required|string|min:10'
         ];
+    }
+
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'status' => 'failed',
+            'errors' => $validator->errors()
+        ], 422));
     }
 }

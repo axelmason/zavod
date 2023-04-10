@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media.css') }}">
 
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Авторизация</title>
 </head>
 
 <body>
     <div class="auth">
         <div class="auth-conatiner">
-            <h2 class="title">Авторизация</h2>
+            <h2 class="title text-center">Авторизация</h2>
             <form class="auth-form" action="{{ route('admin.auth') }}" method="POST">
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
@@ -28,7 +30,6 @@
                 <input type="email" id="email" name="email" required>
                 <label for="password">Пароль:</label>
                 <input type="password" id="password" name="password" required>
-                <a style="padding: 15px 0;" href="">Забыли пароль?</a>
                 <button type="submit">Войти</button>
             </form>
         </div>

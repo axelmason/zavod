@@ -15,7 +15,7 @@ class BotController extends Controller
      * @param string $message
      * @param bool $markdown - set markdown parse mode
      *
-     * @return void
+     * @return bool
      */
     public function sendMessage($message, $markdown = false)
     {
@@ -31,7 +31,11 @@ class BotController extends Controller
                 Log::info("Отправлено сообщение администратору $admin.");
             } catch (Exception $e) {
                 Log::error("Ошибка отправки сообщения администратору $admin.");
+                Log::error($e);
+                return false;
             }
         }
+
+        return true;
     }
 }

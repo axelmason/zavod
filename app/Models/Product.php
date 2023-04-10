@@ -19,4 +19,9 @@ class Product extends Model
     {
         return $this->morphOne(Document::class, 'documentable');
     }
+
+    public function warehouse()
+    {
+        return $this->belongsTo(Warehouse::class);
+    }
 }

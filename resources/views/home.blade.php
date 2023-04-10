@@ -35,14 +35,16 @@
     <div class="container">
         <h2 class="title text-center">Продукты</h2>
         <div class="products-items items-center flex justify-around">
-            @foreach ($products as $product)
+            @forelse ($products as $product)
                 <div class="product-item">
                     <img class="product-img" src="{{ asset('storage/'.$product->image) }}" alt="product">
                     <h3 class="product-item-title pt-[10px]">{{ $product->name }}</h3>
-                    <p class="product-item-text py-[25px]">{{ $product->description }}</p>
-                    <a href="#">Подробнее</a>
+                    <p class="product-item-text py-[25px]">{{ substr($product->description, 0, 20) }}</p>
+                    <a href="{{ route('productDetails', $product->id) }}" style="color: blue">Подробнее</a>
                 </div>
-            @endforeach
+            @empty
+                <span>Пока здесь ничего нет...</span>
+            @endforelse
         </div>
     </div>
 </section>

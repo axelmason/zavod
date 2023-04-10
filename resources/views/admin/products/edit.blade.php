@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <h2 class="title">Создание продукта</h2>
-    <form action="{{ route('admin.products.edit', $product->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.products.edit', $product->id) }}" class="edit-form" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="name">Наименование:</label>
         <input type="text" id="name" name="name" required value="{{ $product->name }}">

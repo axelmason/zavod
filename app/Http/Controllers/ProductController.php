@@ -93,4 +93,10 @@ class ProductController extends Controller
 
         return redirect()->route('admin.products.list')->with('success', 'Продукт успешно удален');
     }
+
+    public function get($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('product', compact('product'));
+    }
 }
