@@ -19,4 +19,9 @@ class AuthController extends Controller
 
         return back();
     }
+    public function logout()
+    {
+        auth()->logout();
+        return to_route('home');
+    }
 }

@@ -24,6 +24,7 @@ Route::prefix('admin')->name('admin.')->group(function() {
     })->name('home');
 
     Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::prefix('products')->name('products.')->group(function() {
         Route::get('/', [ProductController::class, 'list'])->name('list');
