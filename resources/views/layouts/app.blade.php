@@ -33,7 +33,7 @@
         </div>
         <div class="header-items lg:flex max-lg:hidden">
             <a class="header-item" href="tel:+79999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
-            <a class="header-item" id="show-modal" href="#"><img src="{{ asset('"/img/mail.png') }}" alt="mail"></a>
+            <a class="header-item" id="show-modal" href="#"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
             <div id="modal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -65,9 +65,9 @@
             <li class="nav-item"><a href="{{ route('catalogPage') }}">Продукция</a></li>
             <li class="nav-item"><a href="{{ route('contactsPage') }}">Контакты</a></li>
             <div class="flex">
-                <a class="header-item" href="tel:+"><img src="./img/phone.png" alt="phone"></a>
-                <a class="header-item" href="mailto:"><img src="./img/mail.png" alt="mail"></a>
-                <a class="header-item" href="#"><img src="./img/map.png" alt="map"></a>
+                <a class="header-item" href="tel:+"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
+                <a class="header-item" href="mailto:"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
+                <a class="header-item" href="#"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
             </div>
         </ul>
     </nav>
