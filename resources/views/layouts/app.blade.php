@@ -23,17 +23,17 @@
 <body>
     <header>
         <div class="logo-wrapper md:text-center">
-           <a href="{{ route('home') }}"><img src="/img/logo.png" alt="Logo" class="logo"></a>
+           <a href="{{ route('home') }}"><img src="{{ asset('/img/logo.png') }}" alt="Logo" class="logo"></a>
         </div>
         <div class="search-container  hidden sm:flex flex justify-center items-center">
             <input type="text" placeholder="Поиск по сайту" class="search-input">
             <button type="submit" class="search-button">
-                <img src="/img/search.png" alt="search">
+                <img src="{{ asset('/img/search.png') }}" alt="search">
             </button>
         </div>
         <div class="header-items lg:flex max-lg:hidden">
-            <a class="header-item" href="tel:+79999999999"><img src="/img/phone.png" alt="phone"></a>
-            <a class="header-item" id="show-modal" href="#"><img src="/img/mail.png" alt="mail"></a>
+            <a class="header-item" href="tel:+79999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
+            <a class="header-item" id="show-modal" href="#"><img src="{{ asset('"/img/mail.png') }}" alt="mail"></a>
             <div id="modal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -52,7 +52,7 @@
                     </form>
                 </div>
             </div>
-            <a class="header-item" href="#"><img src="/img/map.png" alt="map"></a>
+            <a class="header-item" href="#"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
         </div>
     </header>
     <div class="burger-button-wrapper flex justify-center items-center;">
@@ -114,13 +114,13 @@
                 </div>
             </div>
             <div class="social flex space-x-3">
-                <img class="w-10" src="/img/Telegram_2019_Logo.svg" alt="Telegram">
-                <img class="w-10" src="/img/WhatsApp.svg" alt="WhatsApp">
+                <img class="w-10" src="{{ asset('/img/Telegram_2019_Logo.svg') }}" alt="Telegram">
+                <img class="w-10" src="{{ asset('/img/WhatsApp.svg') }}" alt="WhatsApp">
             </div>
         </div>
     </footer>
     <button id="btn-call" class="btn-call">
-        <a href="tel:+7999999999"><img src="/img/phone.png" alt="phone"></a>
+        <a href="tel:+7999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
     </button>
     <button id="back-to-top" class="btn-back-to-top">
         <i class="fas fa-arrow-up"></i>

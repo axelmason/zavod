@@ -8,7 +8,7 @@
         <div class="slick relative">
             <div class="slide relative">
                 <div class="slide-img">
-                    <img class="object-cover w-full h-64" src="/img/wheat.png" alt="slide">
+                    <img class="object-cover w-full h-64" src="{{ asset('/img/wheat.png') }}" alt="slide">
                 </div>
                 <div class="slide-text absolute inset-0 flex items-center justify-center">
                     <p class="text-center text-white text-lg md:text-xl lg:text-2xl px-4">Lorem ipsum dolor sit amet consectetur
@@ -19,7 +19,7 @@
             </div>
             <div class="slide relative">
                 <div class="slide-img">
-                    <img class="object-cover w-full h-64 rounded-t-md" src="/img/wheat.png" alt="slide">
+                    <img class="object-cover w-full h-64 rounded-t-md" src="{{ asset('/img/wheat.png') }}" alt="slide">
                 </div>
                 <div class="slide-text absolute inset-0 flex items-center justify-center">
                     <p class="text-center text-white text-lg md:text-xl lg:text-2xl px-4">Lorem ipsum dolor sit amet consectetur
@@ -37,7 +37,7 @@
         <div class="products-items items-center flex justify-around">
             @forelse ($products as $product)
                 <div class="product-item">
-                    <img class="product-img" src="{{ asset('storage/'.$product->image) }}" alt="product">
+                    <img class="product-img" src="{{ asset('storage').'/'.$product->image }}" alt="product">
                     <h3 class="product-item-title pt-[10px]">{{ $product->name }}</h3>
                     <p class="product-item-text py-[25px]">{{ substr($product->description, 0, 20) }}</p>
                     <a href="{{ route('productDetails', $product->id) }}" style="color: blue">Подробнее</a>
@@ -54,7 +54,7 @@
         <div class="numbers-items pt-5 xl:grid xl:grid-cols-3 md:flex md:flex-col">
             <div class="numbers-item flex mb-5">
                 <div class="number-left pr-5">
-                    <img class="w-20" src="/img/горох.png" alt="">
+                    <img class="w-20" src="{{ asset('/img/горох.png') }}" alt="">
                 </div>
                 <div class="number-right">
                     <h3 class="numbers-title">999 999</h3>
@@ -63,7 +63,7 @@
             </div>
             <div class="numbers-item flex mb-5">
                 <div class="number-left pr-5">
-                    <img class="w-20" src="/img/горох.png" alt="">
+                    <img class="w-20" src="{{ asset('/img/горох.png') }}" alt="">
                 </div>
                 <div class="number-right">
                     <h3 class="numbers-title">999 999</h3>
@@ -72,7 +72,7 @@
             </div>
             <div class="numbers-item flex mb-5">
                 <div class="number-left  pr-5">
-                    <img class="w-20" src="/img/горох.png" alt="">
+                    <img class="w-20" src="{{ asset('/img/горох.png') }}" alt="">
                 </div>
                 <div class="number-right">
                     <h3 class="numbers-title">999 999</h3>
@@ -81,7 +81,7 @@
             </div>
             <div class="numbers-item flex mb-5">
                 <div class="number-left  pr-5">
-                    <img class="w-20" src="/img/горох.png" alt="">
+                    <img class="w-20" src="{{ asset('/img/горох.png') }}" alt="">
                 </div>
                 <div class="number-right">
                     <h3 class="numbers-title">999 999</h3>
@@ -90,7 +90,7 @@
             </div>
             <div class="numbers-item flex mb-5">
                 <div class="number-left  pr-5">
-                    <img class="w-20" src="/img/горох.png" alt="">
+                    <img class="w-20" src="{{ asset('/img/горох.png') }}" alt="">
                 </div>
                 <div class="number-right">
                     <h3 class="numbers-title">999 999</h3>
@@ -99,7 +99,7 @@
             </div>
             <div class="numbers-item flex mb-5">
                 <div class="number-left pr-5">
-                    <img class="w-20" src="/img/горох.png" alt="">
+                    <img class="w-20" src="{{ asset('/img/горох.png') }}" alt="">
                 </div>
                 <div class="number-right">
                     <h3 class="numbers-title">999 999</h3>
@@ -124,7 +124,7 @@
                 </p>
             </div>
             <div class="column-right flex justify-center">
-                <img class="about-img" src="/img/завод.jpg" alt="factory">
+                <img class="about-img" src="{{ asset('/img/завод.jpg') }}" alt="factory">
             </div>
         </div>
     </div>
