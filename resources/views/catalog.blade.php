@@ -5,7 +5,7 @@
     <section class="catalog">
         <div class="container">
             <h2 class="title text-center">Продукция</h2>
-            <div class="catalog-items mb-[50px] xl:grid xl:grid-cols-3 md:flex md:flex-col">
+            <div class="catalog-items place-items-center mb-[50px] xl:grid xl:grid-cols-3 md:flex md:flex-col">
                 @forelse ($products as $product)
                     <div class="catalog-item">
                         @if ($product->image)

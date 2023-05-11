@@ -92,7 +92,7 @@
                 <div class="footer-link">
                     <h2 class="title">Контакты</h2>
                     <ul class="space-y-3">
-                        <li> <a href="{{ route('contactsPage') }}">Реквизиты</a> </li>
+                        <li> <a href="{{ route('contactsPage') }}">Контакты</a> </li>
                         <li> <a href="tel: +7 999 999 999">Отдел кадров</a> </li>
                         <li> <a href="tel: +7 999 999 999">Отдел продаж</a> </li>
                     </ul>
@@ -101,18 +101,9 @@
                     <h2 class="title">Компания</h2>
                     <ul class="space-y-3">
                         <li> <a href="{{ route('aboutPage') }}">О нас</a> </li>
-                        <li> <a href="">История </a> </li>
                     </ul>
                 </div>
-                <div class="footer-link">
-                    <h2 class="title">Партнерам</h2>
-                    <ul class="space-y-3">
-                        <li> <a href="">Поставщикам</a> </li>
-                        <li> <a href="">Реквизиты и документы</a> </li>
-                        <li> <a href="">Качество продукции</a> </li>
-                    </ul>
-                </div>
-            </div>
+             </div>
             <div class="social flex space-x-3">
                 <img class="w-10" src="{{ asset('/img/Telegram_2019_Logo.svg') }}" alt="Telegram">
                 <img class="w-10" src="{{ asset('/img/WhatsApp.svg') }}" alt="WhatsApp">

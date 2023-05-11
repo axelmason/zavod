@@ -134,7 +134,7 @@ header{
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 42px;
   line-height: 38px;
   color: #000000;
 }
@@ -142,7 +142,7 @@ header{
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 21px;
   color: #000000;
 }
@@ -151,7 +151,7 @@ header{
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 28px;
+  line-height: 32px;
   color: #000000;
 }
 .about-img{
@@ -218,7 +218,6 @@ footer a{
 .btn-call.show{
   opacity: 1;
 }
-
 
 .product-items h2{
   font-size: 24px;
