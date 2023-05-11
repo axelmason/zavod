@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Обновить продукт')
 
 @section('content')
-<div class="container">
-    <h2 class="title">Создание продукта</h2>
+<div class="container mx-5 col-span-11">
+    <h2 class="title">Редактирование продукта</h2>
     <form action="{{ route('admin.products.edit', $product->id) }}" class="edit-form" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="name">Наименование:</label>

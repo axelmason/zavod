@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Setting\EditRequest;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    public function edit(EditRequest $request)
+    public function list()
     {
-        $data = $request->validated();
+        $settings = Setting::all();
+        return view('admin.sections', compact('settings'));
+    }
 
-        Setting::where('alias', $data['alias'])->update(['value' => $data['value']]);
+    public function save(Request $request, $id)
+    {
+        $value = boolval($request->alias) ?? false;
+        Setting::findOrFail($id)->update(['active' => $value]);
+        return back();
     }
 }

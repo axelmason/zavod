@@ -1,10 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Список продуктов')
 
 @section('content')
 <div class="container">
-    <h2 class="title">Админ-панель</h2>
     <a href="{{ route('admin.products.createPage') }}" class="btn-edit">+ Добавить</a>
     <div class="table-responsive">
         <table class="table">

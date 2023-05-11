@@ -21,6 +21,7 @@
     <title>@yield('title')</title>
 </head>
 <body>
+    @if($settings->where('alias', 'header')->first()->active)
     <header>
         <div class="logo-wrapper md:text-center">
            <a href="{{ route('home') }}"><img src="{{ asset('/img/logo.png') }}" alt="Logo" class="logo"></a>
@@ -55,6 +56,8 @@
             <a class="header-item" href="#"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
         </div>
     </header>
+    @endif
+    @if($settings->where('alias', 'nav')->first()->active)
     <div class="burger-button-wrapper flex justify-center items-center;">
         <button class="burger-button">&#9776;</button>
     </div>
@@ -79,6 +82,7 @@
             <li class="nav-item"><a href="{{ route('contactsPage') }}">Контакты</a></li>
         </ul>
     </nav>
+    @endif
     @if ($errors->any())
         @foreach ($errors->all() as $error)
             <p style="color: red;">{{ $error }}</p>
@@ -86,6 +90,7 @@
     @endif
     @yield('content')
     <hr>
+    @if($settings->where('alias', 'footer')->first()->active)
     <footer>
         <div class="container">
             <div class="footer-links flex max-md:flex-col gap-5 items-start mb-[50px]">
@@ -110,6 +115,7 @@
             </div>
         </div>
     </footer>
+    @endif
     <button id="btn-call" class="btn-call">
         <a href="tel:+7999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
     </button>

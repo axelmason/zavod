@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\WarehouseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::prefix('admin')->name('admin.')->group(function() {
-    Route::get('/', function() {
-        if(auth()->check()) {
-            return to_route('admin.products.list');
-        }
-        return view('admin.auth');
-    })->name('home');
+Route::get('/admin', function() {
+    if(auth()->check()) {
+        return to_route('admin.products.list');
+    }
+    return view('admin.auth');
+})->name('admin');
 
+Route::prefix('admin')->name('admin.')->group(function() {
     Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -36,6 +38,17 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
         Route::get('/delete/{product_id}', [ProductController::class, 'delete'])->name('delete');
     });
+
+    Route::prefix('warehouse')->name('warehouse.')->group(function() {
+        Route::get('/', [WarehouseController::class, 'list'])->name('list');
+        Route::get('/delete/{id}', [WarehouseController::class, 'delete'])->name('delete');
+        Route::post('/create', [WarehouseController::class, 'create'])->name('create');
+    });
+    Route::prefix('section')->name('section.')->group(function() {
+        Route::get('/', [SettingController::class, 'list'])->name('list');
+        Route::post('/save/{id}', [SettingController::class, 'save'])->name('save');
+    });
+
 });
 
 Route::get('/product/{id}', [ProductController::class, 'get'])->name('productDetails');

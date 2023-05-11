@@ -13,9 +13,9 @@ class ProductController extends Controller
 {
     public function list()
     {
-        $products = Product::with('document')->get();
+        $products = Product::with('document', 'warehouse')->get();
 
-        return view('admin.products.list', compact('products'));
+        return view('admin.products', compact('products'));
     }
 
     public function createPage()
@@ -54,7 +54,6 @@ class ProductController extends Controller
     public function edit(EditRequest $request, $productId)
     {
         $data = $request->validated();
-        // dd($data);
         $product = Product::findOrFail($productId);
 
         if ($request->hasFile('image')) {

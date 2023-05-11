@@ -9,5 +9,9 @@ class Setting extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['value', 'active'];
+    protected $fillable = ['active'];
+
+    protected $casts = [
+        'active' => 'boolean'
+    ];
 }

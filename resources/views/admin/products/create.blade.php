@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Создать продукт')
 
 @section('content')
-<div class="container">
+<div class="container mx-5 col-span-11">
     <h2 class="title">Создание продукта</h2>
     <form action="{{ route('admin.products.create') }}" class="create-form" method="POST" enctype="multipart/form-data">
         @csrf

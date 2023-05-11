@@ -24,8 +24,7 @@ class EditRequest extends FormRequest
     public function rules()
     {
         return [
-            'alias' => 'required',
-            'value' => 'required|string',
+            'alias' => 'required'
         ];
     }
 }

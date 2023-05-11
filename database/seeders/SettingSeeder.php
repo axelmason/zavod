@@ -15,12 +15,11 @@ class SettingSeeder extends Seeder
     public function run()
     {
         $settings = [
-            ['name' => 'Логотип', 'alias' => 'logo', 'value' => 'logo.png'],
-            ['name' => 'Номер для связи', 'alias' => 'phone_number', 'value' => '+7999999999'],
-            ['name' => 'Текст слайда 1', 'alias' => 'slider_item_1', 'value' => 'text1'],
-            ['name' => 'Текст слайда 2', 'alias' => 'slider_item_2', 'value' => 'text2'],
-            ['name' => 'Текст слайда 3', 'alias' => 'slider_item_3', 'value' => 'text3'],
-            ['name' => 'Страница "О нас"', 'alias' => 'about_page_text', 'value' => file_get_contents(__DIR__.'/about_default.html')]
+            ['name' => 'Хедер', 'alias' => 'header'],
+            ['name' => 'Меню', 'alias' => 'nav'],
+            ['name' => 'Статистика', 'alias' => 'statistic'],
+            ['name' => 'О нас', 'alias' => 'about_us'],
+            ['name' => 'Футер', 'alias' => 'footer'],
         ];
 
         Setting::insert($settings);

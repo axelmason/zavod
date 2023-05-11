@@ -42,6 +42,7 @@
         </div>
     </div>
 </section>
+@if($settings->where('alias', 'statistic')->first()->active)
 <section class="numbers py-[30px]">
     <div class="container">
         <h2 class="title">Наш завод в цифрах</h2>
@@ -94,6 +95,8 @@
         </div>
     </div>
 </section>
+@endif
+@if($settings->where('alias', 'about_us')->first()->active)
 <section class="about mb-[25px]">
     <div class="container">
         <h2 class="title">О нас</h2>
@@ -112,4 +115,5 @@
         </div>
     </div>
 </section>
+@endif
 @endsection
