@@ -16,7 +16,7 @@
 <body>
     <header class="flex items-center justify-between p-5">
         <div class="logo flex items-center">
-            <img src="{{ asset('logo.png') }}" alt="Logo" class="w-[75px]">
+           <a href="{{ route('home') }}"><img src="{{ asset('logo.png') }}" alt="Logo" class="w-[75px]"></a>
         </div>
         <i class="fas fa-bars menu-icon md:hidden"></i>
         <i class="fas fa-times close-menu-icon hidden"></i>
@@ -47,7 +47,7 @@
                 <ul class="admin-menu text-[32px] flex flex-col">
                     <li><a href="{{ route('admin') }}"><i class="fa-solid text-gray-500 hover:text-[#F6C000] fa-box p-3"></i></a></li>
                     <li><a href="{{ route('admin.warehouse.list') }}"><i class="fa-solid text-gray-500 hover:text-[#F6C000] fa-warehouse p-3"></i></a></li>
-                    {{-- <li><a href="{{ route('categories') }}"><i class="fa-solid text-gray-500 hover:text-[#F6C000] fa-list p-3"></i></a></li> --}}
+                    <li><a href="{{ route('admin.category.list') }}"><i class="fa-solid text-gray-500 hover:text-[#F6C000] fa-list p-3"></i></a></li>
                     <li><a href="{{ route('admin.section.list') }}"><i class="fa-solid fa-section text-gray-500 hover:text-[#F6C000] p-3"></i></a></li>
                 </ul>
             </div>

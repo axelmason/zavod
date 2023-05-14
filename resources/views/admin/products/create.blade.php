@@ -5,6 +5,9 @@
 @section('content')
 <div class="container mx-5 col-span-11">
     <h2 class="title">Создание продукта</h2>
+    @if ($errors->any())
+        {{ $errors->all }}
+    @endif
     <form action="{{ route('admin.products.create') }}" class="create-form" method="POST" enctype="multipart/form-data">
         @csrf
         <label for="name">Наименование:</label>
@@ -26,7 +29,13 @@
                 <option value="{{ $wh->id }}">{{ $wh->name }}</option>
             @endforeach
         </select>
-
+        <label for="category_id">Категория:</label>
+        <select id="category_id" name="category_id" required>
+            <option value="" disabled selected>Выберите категорию</option>
+            @foreach ($categories as $c)
+                <option value="{{ $c->id }}">{{ $c->name }}</option>
+            @endforeach
+        </select>
         <button type="submit">Создать продукт</button>
     </form>
 </div>

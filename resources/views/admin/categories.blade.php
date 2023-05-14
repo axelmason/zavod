@@ -2,7 +2,8 @@
 @section('content')
 <div class="admin-content col-span-11 p-5">
     <h2 class="title">Категория</h2>
-    <form class="p-4">
+    <form class="p-4" method="POST" action="{{ route('admin.category.create') }}">
+        @csrf
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label for="name" class="block text-gray-700 font-bold mb-2">Наименование</label>
@@ -22,18 +23,12 @@
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-6 py-4 whitespace-nowrap">Category 1</td>
-              <td class="px-6 py-4 whitespace-nowrap"><a href="#"><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a><a href="#"><i class="fa-sharp text-blue-500 fa-solid fa-pen px-3"></i></a></td>
-            </tr>
-            <tr>
-                <td class="px-6 py-4 whitespace-nowrap">Category 1</td>
-                <td class="px-6 py-4 whitespace-nowrap"><a href="#"><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a><a href="#"><i class="fa-sharp text-blue-500 fa-solid fa-pen px-3"></i></a></td>
-            </tr>
-            <tr>
-                <td class="px-6 py-4 whitespace-nowrap">Category 1</td>
-                <td class="px-6 py-4 whitespace-nowrap"><a href="#"><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a><a href="#"><i class="fa-sharp text-blue-500 fa-solid fa-pen px-3"></i></a></td>
-            </tr>
+            @foreach ($categories as $c)
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap">{{ $c->name }}</td>
+                    <td class="px-6 py-4 whitespace-nowrap"><a href="{{ route('admin.category.delete', $c->id) }}"><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a></td>
+                </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

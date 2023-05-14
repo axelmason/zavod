@@ -10,6 +10,9 @@
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                             Наименование</th>
+                            <th scope="col"
+                            class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Категория</th>
                         <th scope="col"
                             class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Описание
                         </th>
@@ -31,6 +34,11 @@
                     @foreach ($products as $p)
                     <tr class="align-middle">
                         <td class="px-6 py-4 whitespace-nowrap align-middle">{{ $p->name }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap align-middle">
+                            @if ($p->category)
+                            {{ $p->category->name }}
+                        @endif
+                        </td>
                         <td class="px-6 py-4 whitespace-nowrap align-middle">{{ $p->description }}</td>
                         <td class="px-6 py-4 whitespace-nowrap align-middle">{{ $p->warehouse->name }}</td>
                         <td class="px-6 py-4 whitespace-nowrap h-full">
@@ -49,7 +57,7 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <a href="{{ route('admin.products.editPage', $p->id) }}"><i class="fa-sharp text-blue-500 fa-solid fa-pen px-3"></i></a>
-                            <a href="#"><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a>
+                            <a href=""><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a>
                         </td>
                     </tr>
                     @endforeach

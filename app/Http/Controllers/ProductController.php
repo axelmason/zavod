@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Product\CreateRequest;
 use App\Http\Requests\Product\EditRequest;
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\Warehouse;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,9 @@ class ProductController extends Controller
     {
         $warehouses = Warehouse::all();
 
-        return view('admin.products.create', compact('warehouses'));
+        $categories = Category::all();
+
+        return view('admin.products.create', compact('warehouses','categories'));
     }
 
     public function create(CreateRequest $request)
@@ -48,7 +51,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($productId);
         $warehouses = Warehouse::all();
 
-        return view('admin.products.edit', compact('product', 'warehouses'));
+        $categories = Category::all();
+
+        return view('admin.products.edit', compact('product', 'warehouses', 'categories'));
     }
 
     public function edit(EditRequest $request, $productId)

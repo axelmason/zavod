@@ -38,6 +38,17 @@
             @endforeach
         </select>
 
+        <label for="category_id">Категория:</label>
+        <select id="category_id" name="category_id" required>
+            <option value="" disabled selected>Выберите категорию</option>
+            @foreach ($categories as $c)
+                <option value="{{ $c->id }}"
+                     @if($c->id == $product->category_id) selected @endif>
+                     {{ $c->name }}
+                </option>
+            @endforeach
+        </select>
+
         <button type="submit">Обновить продукт</button>
     </form>
 </div>
