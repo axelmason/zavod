@@ -26,12 +26,6 @@
         <div class="logo-wrapper md:text-center">
            <a href="{{ route('home') }}"><img src="{{ asset('/img/logo.png') }}" alt="Logo" class="logo"></a>
         </div>
-        <div class="search-container  hidden sm:flex flex justify-center items-center">
-            <input type="text" placeholder="Поиск по сайту" class="search-input">
-            <button type="submit" class="search-button">
-                <img src="{{ asset('/img/search.png') }}" alt="search">
-            </button>
-        </div>
         <div class="header-items lg:flex max-lg:hidden">
             <a class="header-item" href="tel:+79999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
             <a class="header-item" id="show-modal" href="#"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>

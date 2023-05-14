@@ -28,7 +28,8 @@ class EditRequest extends FormRequest
             'description' => 'required|string',
             'image' => 'nullable|file',
             'document' => 'nullable|file',
-            'warehouse_id' => 'required|exists:warehouses,id'
+            'warehouse_id' => 'required|exists:warehouses,id',
+            'category_id' => 'required|exists:categories,id'
         ];
     }
 }

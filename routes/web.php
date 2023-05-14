@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
@@ -48,7 +49,11 @@ Route::prefix('admin')->name('admin.')->group(function() {
         Route::get('/', [SettingController::class, 'list'])->name('list');
         Route::post('/save/{id}', [SettingController::class, 'save'])->name('save');
     });
-
+    Route::prefix('category')->name('category.')->group(function() {
+        Route::get('/', [CategoryController::class, 'list'])->name('list');
+        Route::get('/delete/{id}', [CategoryController::class, 'delete'])->name('delete');
+        Route::post('/create', [CategoryController::class, 'create'])->name('create');
+    });
 });
 
 Route::get('/product/{id}', [ProductController::class, 'get'])->name('productDetails');
