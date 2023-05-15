@@ -1,16 +1,41 @@
-// Burger menu
+// Admin burger menu
 
 $(document).ready(function() {
-    $('.burger-button').click(function() {
-      $('.burger').toggleClass('menu-open');
-    });
-    $(window).resize(function() {
-      if ($(this).width() > 768) {
-        $('.burger').removeClass('menu-open');
-      }
-    });
-  });
+    const menuIcon = $('.menu-icon');
+    const closeMenuIcon = $('.close-menu-icon');
+    const menu = $('.menu');
 
+    menuIcon.click(function() {
+      menu.removeClass('hidden');
+      closeMenuIcon.removeClass('hidden');
+      menuIcon.addClass('hidden');
+    });
+
+    closeMenuIcon.click(function() {
+      menu.addClass('hidden');
+      closeMenuIcon.addClass('hidden');
+      menuIcon.removeClass('hidden');
+    });
+});
+
+//Burger menu
+$(document).ready(function() {
+    const menuIcon = $('.burger-button');
+    const closeMenuIcon = $('.burger-close-button');
+    const menu = $('.burger');
+
+    menuIcon.click(function() {
+      menu.removeClass('hidden');
+      closeMenuIcon.removeClass('hidden');
+      menuIcon.addClass('hidden');
+    });
+
+    closeMenuIcon.click(function() {
+      menu.addClass('hidden');
+      closeMenuIcon.addClass('hidden');
+      menuIcon.removeClass('hidden');
+    });
+});
 
   // Slider
   $(document).ready(function(){
@@ -97,4 +122,5 @@ $(document).ready(function() {
     });
 
     return false;
-  })
+  });
+

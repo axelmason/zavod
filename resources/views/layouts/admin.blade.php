@@ -22,13 +22,13 @@
         <i class="fas fa-times close-menu-icon hidden"></i>
         <nav class="menu hidden">
             <ul>
-                <li><a href="./index.html"><i class="fa-solid text-gray-500 hover:text-[#F6C000] fa-box p-3"></i></a>
+                <li><a href="{{ route('admin.products.list') }}"><i class="fa-solid text-gray-500 hover:text-[#F6C000] fa-box p-3"></i></a>
                 </li>
-                <li><a href="./warehouse.html"><i
+                <li><a href="{{ route('admin.warehouse.list') }}"><i
                             class="fa-solid text-gray-500 hover:text-[#F6C000] fa-warehouse p-3"></i></a></li>
-                <li><a href="./category.html"><i
+                <li><a href="{{ route('admin.category.list') }}"><i
                             class="fa-solid text-gray-500 hover:text-[#F6C000] fa-list p-3"></i></a></li>
-                <li><a href="./sections.html"><i
+                <li><a href="{{ route('admin.category.list') }}"><i
                             class="fa-solid fa-section text-gray-500 hover:text-[#F6C000] p-3"></i></a></li>
             </ul>
         </nav>
