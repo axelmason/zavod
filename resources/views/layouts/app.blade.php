@@ -10,7 +10,6 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media.css') }}">
@@ -47,26 +46,27 @@
                     </form>
                 </div>
             </div>
-            <a class="header-item" href="#"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
+            <a class="header-item" href="{{ route('contactsPage') }}"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
         </div>
     </header>
     @endif
     @if($settings->where('alias', 'nav')->first()->active)
     <div class="burger-button-wrapper flex justify-center items-center;">
-        <button class="burger-button">&#9776;</button>
+        <i class="fas burger-button fa-bars md:hidden"></i>
+        <i class="fas burger-close-button fa-times hidden"></i>
     </div>
-    <nav class="burger">
-        <ul class="burger-ul flex justify-center">
+    <nav class="burger hidden">
+        <ul class="burger-ul">
             <li class="nav-item"><a href="{{ route('aboutPage') }}">О нас</a></li>
             <li class="nav-item"><a href="{{ route('partnersPage') }}">Партнёры</a></li>
             <li class="nav-item"><a href="{{ route('catalogPage') }}">Продукция</a></li>
             <li class="nav-item"><a href="{{ route('contactsPage') }}">Контакты</a></li>
-            <div class="flex">
-                <a class="header-item" href="tel:+"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
-                <a class="header-item" href="mailto:"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
-                <a class="header-item" href="#"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
-            </div>
         </ul>
+        <div class="flex">
+            <a class="header-item" href="tel:+"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
+            <a class="header-item" href="mailto:"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
+            <a class="header-item" href="{{ route('contactsPage') }}"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
+        </div>
     </nav>
     <nav class="nav block">
         <ul class="nav-ul flex justify-center">
@@ -116,9 +116,8 @@
     <button id="back-to-top" class="btn-back-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="{{ asset('main.js') }}"></script>
 </body>
 </html>

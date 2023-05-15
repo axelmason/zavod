@@ -57,7 +57,7 @@ header{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     padding: 0 10px;
-  } 
+  }
 .search-input {
     flex-grow: 1;
     height: 100%;
@@ -88,29 +88,31 @@ header{
   list-style: none;
   gap: 5rem;
 }
-
-.burger{
-  justify-content: center;
-  display: none;
-  font-size: 24px;
+.burger {
+    font-size: 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 999;
+    padding: 20px;
+  }
+.burger-button,
+.burger-close-button {
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
-.burger-ul{
-  margin: 0;
-  padding: 0; 
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.burger-button{
-  font-size: 32px;
-  display: none;
-}
-.menu-open{
-  display: flex;
+.burger-close-button{
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
 }
 .product-item-title{
   font-family: 'Roboto';
@@ -377,7 +379,7 @@ textarea {
   display: flex;
   justify-content: start;
   flex-direction: column;
-  margin: auto; 
+  margin: auto;
   background-color: #FFFFFF;
 }
 .modal-form input, .modal-form textarea{
@@ -399,12 +401,12 @@ textarea {
 .modal-content {
   border-radius: 25px;
   background-color: #fefefe;
-  margin: auto; 
+  margin: auto;
   padding: 20px;
   width: 80%;
   max-width: 600px;
   position: relative;
-  top: 50%; 
+  top: 50%;
   transform: translateY(-50%);
 }
 .close {
