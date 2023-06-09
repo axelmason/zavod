@@ -11,7 +11,7 @@
                             <img class="catalog-img" src="{{ asset('storage/'.$product->image) }}" alt="product">
                         @endif
                         <h3 class="catalog-item-title pt-[10px]">{{ $product->name }}</h3>
-                        <p class="catalog-item-text py-[25px]">{{ substr($product->description, 0, 20) }}</p>
+                        <p class="catalog-item-text py-[25px]">{{ ($product->description) }}</p>
                         <a class="text-lg" href="{{ route('productDetails', $product->id) }}">Подробнее</a>
                     </div>
                 @empty

@@ -15,8 +15,8 @@ class WarehouseSeeder extends Seeder
     public function run()
     {
         $warehouses = [
-            ['name' => 'Основной', 'alias' => 'main'],
-            ['name' => 'Запасной', 'alias' => 'spare']
+            ['name' => 'Старомалиновка', 'alias' => 'main'],
+            ['name' => 'Кормиловка', 'alias' => 'spare']
         ];
 
         Warehouse::insert($warehouses);
