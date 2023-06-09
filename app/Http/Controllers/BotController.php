@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Exception;
-use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Api;
+use Illuminate\Support\Facades\Log;
+use App\Http\Requests\CreateFeedbackRequest;
+use Illuminate\Routing\Middleware\ThrottleRequests;
 
 class BotController extends Controller
 {
@@ -17,6 +19,7 @@ class BotController extends Controller
      *
      * @return bool
      */
+
     public function sendMessage($message, $markdown = false)
     {
         $telegram = new Api(env("BOT_TOKEN"));
@@ -37,5 +40,16 @@ class BotController extends Controller
         }
 
         return true;
+    }
+    public function send(CreateFeedbackRequest $r)
+    {
+        $data = $r->validated();
+
+        $message = sprintf("*Новое сообщение.*\n\nИмя: *%s*\nEmail: `%s`\n\nСообщение: \n%s", $data['name'], $data['email'], $data['message']);
+        $sent = $this->sendMessage($message, true);
+        if($sent) {
+            return response()->json(['status' => 'success', 'message' => 'Сообщение отправлено!']);
+        }
+        return response()->json(['status' => 'failed', 'message' => 'Сообщение не было отправлено отправлено!'], 422);
     }
 }

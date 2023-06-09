@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="mt-4">
-          <button type="submit" class="bg-[#F6C000] hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Отправить</button>
+          <button type="submit" class="bg-[#F6C000] transition ease-in-out delay-30 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Отправить</button>
         </div>
       </form>
       <div class="overflow-x-auto py-5">

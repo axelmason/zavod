@@ -40,7 +40,7 @@
                         @endif
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap align-middle">{{ $p->description }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap align-middle">{{ $p->warehouse->name }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap align-middle">{{ $p->warehouse->name ?? "-" }}</td>
                         <td class="px-6 py-4 whitespace-nowrap h-full">
                             @if ($p->document)
                                 <div>{{ last(explode('/', $p->document->path)) }} <br><a download href="{{ asset('storage/'.$p->document->path) }}" class="text-blue-700"> Скачать</a></div>
@@ -57,7 +57,7 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <a href="{{ route('admin.products.editPage', $p->id) }}"><i class="fa-sharp text-blue-500 fa-solid fa-pen px-3"></i></a>
-                            <a href=""><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a>
+                            <a href="{{ route('admin.products.delete', $p->id) }}"><i class="fa-sharp text-red-500 fa-solid fa-trash px-3"></i></a>
                         </td>
                     </tr>
                     @endforeach

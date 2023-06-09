@@ -35,10 +35,9 @@
         <div class="flex flex-col sm:flex-row">
             <div class="mr-4 admin-profile">
                 <i class="fa-solid fa-user"></i>
-                <a href="#" class="font-medium">Admin</a>
+                <a href="{{ route('admin') }}" class="font-medium">Admin</a>
             </div>
-            <a href="{{ route('admin.logout') }}" class="font-medium text-red-500"><i
-                    class="fa-solid fa-right-from-bracket px-1"></i>Logout</a>
+            <a href="{{ route('admin.logout') }}" class="font-medium text-red-500"><i class="fa-solid fa-right-from-bracket px-1"></i>Logout</a>
         </div>
     </header>
     <section class="admin">

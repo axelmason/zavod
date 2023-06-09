@@ -3,7 +3,7 @@
 @section('title', 'Создать продукт')
 
 @section('content')
-<div class="container mx-5 col-span-11">
+<div class="container mx-auto mx-5 col-span-11">
     <h2 class="title">Создание продукта</h2>
     @if ($errors->any())
         {{ $errors->all }}
