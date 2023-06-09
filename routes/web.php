@@ -25,8 +25,9 @@ Route::get('/admin', function() {
     return view('admin.auth');
 })->name('admin');
 
+Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
+
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function() {
-    Route::post('/auth', [AuthController::class, 'auth'])->name('auth');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::prefix('products')->name('products.')->group(function() {

@@ -17,7 +17,7 @@
     <div class="auth">
         <div class="auth-conatiner">
             <h2 class="title text-center">Авторизация</h2>
-            <form class="auth-form" action="{{ route('admin.auth') }}" method="POST">
+            <form class="auth-form" action="{{ route('auth') }}" method="POST">
                 @if ($errors->any())
                     @foreach ($errors->all() as $error)
                         <p style="color: red;">{{ $error }}</p>
