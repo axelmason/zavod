@@ -90,9 +90,13 @@
         console.log(response.message)
         form.find('.success-message').text(response.message)
     }).fail(err => {
-        let errors = Object.values(err.responseJSON.errors).map(el => { return el[0] });
-        console.log(errors)
-        form.find('.errors-message').text(errors)
+        if(err.status === 422){
+            let errors = Object.values(err.responseJSON.errors).map(el => { return el[0] });
+            $('.errors-message').text(errors)
+        }
+        if(err.status === 429){
+            $('.errors-message').text('Слишком много запросов')
+        }
     });
 
     return false;

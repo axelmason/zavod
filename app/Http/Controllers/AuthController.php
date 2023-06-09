@@ -16,7 +16,6 @@ class AuthController extends Controller
         if(!$auth) {
             return back()->withErrors(['authfailed' => 'Логин и пароль не подходят. Попробуйте ещё раз.']);
         }
-
         return back();
     }
     public function logout()

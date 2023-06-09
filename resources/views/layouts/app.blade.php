@@ -89,8 +89,8 @@
                 </div>
              </div>
             <div class="social flex space-x-3">
-                <img class="w-10" src="{{ asset('/img/Telegram_2019_Logo.svg') }}" alt="Telegram">
-                <img class="w-10" src="{{ asset('/img/WhatsApp.svg') }}" alt="WhatsApp">
+                <a href="#"><img class="w-10" src="{{ asset('/img/Telegram_2019_Logo.svg') }}" alt="Telegram"></a>
+                <a href="#"><img class="w-10" src="{{ asset('/img/WhatsApp.svg') }}" alt="WhatsApp"></a>
             </div>
         </div>
     </footer>
