@@ -12,7 +12,10 @@
   font-weight: bold;
   font-style: normal;
 }
-
+::selection {
+    background-color: #F6C000; /* Цвет фона при выделении */
+    color: white; /* Цвет текста при выделении */
+}
 ::root{
   --default-font: font-family:'Roboto', sans-serif;
 }
@@ -21,16 +24,26 @@ body{
   overflow-x:hidden;
   font-family: var(--title-font);
 }
-
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  box-sizing: border-box;
-}
-
+.nav-item a{
+    display: inline-block;
+    text-decoration: none;
+    color:black;
+    font-size: 24px;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+.nav-item a::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: #F6C000;
+      width: 0;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      transition: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  }
+.nav-item a:hover::after { width: 100%; }
 
 /* header */
 header{
@@ -39,55 +52,19 @@ header{
     align-items: center;
     padding: 20px 65px;
 }
-
 .title {
   font-size: 32px;
   font-weight: bold;
   color: black;
   padding: 10px 0;
 }
-.logo{
-  width: 150px;
-}
-.search-container {
-    margin: 0 50px;
-    width: 500px;
-    height: 50px;
-    background: #D9D9D9;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 20px;
-    padding: 0 10px;
-  }
-.search-input {
-    flex-grow: 1;
-    height: 100%;
-    border: none;
-    background: transparent;
-    padding: 10px 0;
-    font-size: 16px;
-  }
-.search-button {
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    margin-left: 10px;
-}
-.header-items{
-  gap:5rem;
-}
-.header-item{
-  transition: 0.01s;
-}
-.header-item:hover{
-  transform: translateY(-5px);
-}
-
 .nav-ul{
+  padding: 30px 0;
   font-size: 24px;
   list-style: none;
   gap: 5rem;
 }
+
 .burger {
     font-size: 24px;
     position: fixed;
@@ -96,7 +73,7 @@ header{
     width: 100%;
     height: 100%;
     background-color: #fff;
-    z-index: 999;
+    z-index: 2;
     padding: 20px;
   }
 .burger-button,
@@ -129,9 +106,6 @@ header{
   line-height: 21px;
   color: #828282;
 }
-.numbers{
-  background: #F8F9FB;
-}
 .numbers-title{
   font-family: 'Roboto';
   font-style: normal;
@@ -156,31 +130,15 @@ header{
   line-height: 32px;
   color: #000000;
 }
-.about-img{
-  max-width: 100%;
-  width: 500px;
-  height: auto;
-  border-radius: 25px;
-}
-.column-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 .product-img, .catalog-img{
-  max-width: 150px;
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
 }
-
-footer{
-  background: #F8F9FB;
-}
-footer a{
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-  color: #000000;
+.partner-item img{
+    height: 150px;
+    width: 150px;
+    object-fit: contain;
 }
 
 .btn-back-to-top {
@@ -220,77 +178,6 @@ footer a{
 .btn-call.show{
   opacity: 1;
 }
-
-.product-items h2{
-  font-size: 24px;
-}
-.product-items p{
-  font-size: 18px;
-}
-
-/* Admin-Panel */
-.table {
-  margin: 25px 0;
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-}
-
-.table th,
-.table td {
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.table th {
-  background-color: #f5f5f5;
-  font-weight: bold;
-}
-
-.table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.btn-edit, .btn-delete {
-  border-radius: 10%;
-  cursor: pointer;
-}
-.btn-delete{
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-.btn-edit {
-  background-color: blue;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-edit:before, .btn-delete:before{
-  content: "";
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 200%;
-  height: 200%;
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: rotate(45deg);
-  transition: all 0.4s ease-in-out;
-}
-
-.btn-edit:hover:before, .btn-delete:before {
-  top: 0;
-  left: 0;
-}
-
 .auth,.edit,.create{
   padding:100px 0;
 }
@@ -351,6 +238,7 @@ textarea {
 
 .auth-form>button[type="submit"], .create-form>button[type="submit"], .edit-form>button[type="submit"] {
   background-color: #F6C000;
+  transition: 0.3s ease-out;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -359,14 +247,13 @@ textarea {
 }
 
 .auth-form>button[type="submit"]:hover, .create-form>button[type="submit"]:hover, .edit-form>button[type="submit"]:hover {
-  transition: 0.3s ease-out;
   background-color: green;
 }
 
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   left: 0;
   top: 0;
   width: 100%;
@@ -375,6 +262,7 @@ textarea {
   background-color: rgba(0,0,0,0.4);
 }
 .modal-form{
+  padding: 10px 0;
   margin: 0 auto;
   display: flex;
   justify-content: start;
@@ -383,21 +271,24 @@ textarea {
   background-color: #FFFFFF;
 }
 .modal-form input, .modal-form textarea{
-  border: 5px solid #FFE794;
+  padding: 10px 10px;
+  margin: 5px 0;
+  border: 2px solid #FFE794;
   border-radius: 25px;
 }
-.modal-form input{
-  border: 5px solid #FFE794;
-}
 .modal-form button{
+  transition: 0.3s ease-out;
   background-color: #F6C000;
   color: white;
   border: none;
-  padding: 20px 20px;
+  margin-top: 1em;
+  padding: 5px 5px;
   border-radius: 5px;
   cursor: pointer;
 }
-
+.modal-form button:hover{
+    background-color: green;
+}
 .modal-content {
   border-radius: 25px;
   background-color: #fefefe;
@@ -409,20 +300,26 @@ textarea {
   top: 50%;
   transform: translateY(-50%);
 }
-.close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-}
 
-.close:hover {
-  color: #000;
+footer a{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
 }
-@media screen and (max-width:768px) {
-  .search-container{
-    display: none;
+.contacts h2{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 32px;
+    line-height: 32px;
+    color: #000000;
 }
+.contacts p{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-size: 24px;
+  line-height: 32px;
+  color: #000000;
 }

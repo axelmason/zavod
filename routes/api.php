@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\FeedbackController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\BotController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/feedback/send', [FeedbackController::class, 'send'])->name('sendFeedback');
+Route::post('/feedback/send', [BotController::class, 'send'])->name('sendFeedback')->middleware('throttle:1,1');

@@ -23,30 +23,12 @@
     @if($settings->where('alias', 'header')->first()->active)
     <header>
         <div class="logo-wrapper md:text-center">
-           <a href="{{ route('home') }}"><img src="{{ asset('/img/logo.png') }}" alt="Logo" class="logo"></a>
+           <a href="{{ route('home') }}"><img src="{{ asset('/img/logo.png') }}" alt="Logo" class="logo w-[150px;]"></a>
         </div>
-        <div class="header-items lg:flex max-lg:hidden">
-            <a class="header-item" href="tel:+79999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
-            <a class="header-item" id="show-modal" href="#"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
-            <div id="modal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <form class="modal-form" onsubmit="return false;">
-                        @csrf
-                        <h3 class="title text-center">Форма обратной связи</h3>
-                        <div class="success-message text-green-600"></div>
-                        <div class="errors-message text-red-600"></div>
-                        <label for="name">Имя:</label>
-                        <input type="text" id="name" name="name" required>
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                        <label for="text">Текст:</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <button type="submit">Отправить</button>
-                    </form>
-                </div>
-            </div>
-            <a class="header-item" href="{{ route('contactsPage') }}"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
+        <div class="header-items gap-20 lg:flex max-lg:hidden">
+            <a class="header-item transition duration-200 transform hover:translate-y-[-5px]" href="tel:+79999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
+            <a class="show-modal header-item transition duration-200 transform hover:translate-y-[-5px]" href="#"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
+            <a class="header-item transition duration-200 transform hover:translate-y-[-5px]" href="{{ route('contactsPage') }}"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
         </div>
     </header>
     @endif
@@ -56,20 +38,22 @@
         <i class="fas burger-close-button fa-times hidden"></i>
     </div>
     <nav class="burger hidden">
-        <ul class="burger-ul">
+        <ul class="burger-ul space-y-4">
+            <li class="nav-item"><a href="{{ route('home') }}">Главная</a></li>
             <li class="nav-item"><a href="{{ route('aboutPage') }}">О нас</a></li>
             <li class="nav-item"><a href="{{ route('partnersPage') }}">Партнёры</a></li>
             <li class="nav-item"><a href="{{ route('catalogPage') }}">Продукция</a></li>
             <li class="nav-item"><a href="{{ route('contactsPage') }}">Контакты</a></li>
         </ul>
-        <div class="flex">
+        <div class="flex gap-5 py-5">
             <a class="header-item" href="tel:+"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>
-            <a class="header-item" href="mailto:"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
+            <a class="show-modal header-item" href="#"><img src="{{ asset('/img/mail.png') }}" alt="mail"></a>
             <a class="header-item" href="{{ route('contactsPage') }}"><img src="{{ asset('/img/map.png') }}" alt="map"></a>
         </div>
     </nav>
     <nav class="nav block">
         <ul class="nav-ul flex justify-center">
+            <li class="nav-item"><a href="{{ route('home') }}">Главная</a></li>
             <li class="nav-item"><a href="{{ route('aboutPage') }}">О нас</a></li>
             <li class="nav-item"><a href="{{ route('partnersPage') }}">Партнёры</a></li>
             <li class="nav-item"><a href="{{ route('catalogPage') }}">Продукция</a></li>
@@ -85,8 +69,8 @@
     @yield('content')
     <hr>
     @if($settings->where('alias', 'footer')->first()->active)
-    <footer>
-        <div class="container">
+    <footer class="bg-gray-100">
+        <div class="container px-5 mx-auto">
             <div class="footer-links flex max-md:flex-col gap-5 items-start mb-[50px]">
                 <div class="footer-link">
                     <h2 class="title">Контакты</h2>
@@ -100,6 +84,7 @@
                     <h2 class="title">Компания</h2>
                     <ul class="space-y-3">
                         <li> <a href="{{ route('aboutPage') }}">О нас</a> </li>
+                        <li> <a href="{{ route('partnersPage') }}">Партнёры</a></li>
                     </ul>
                 </div>
              </div>
@@ -109,6 +94,24 @@
             </div>
         </div>
     </footer>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close absolute top-2 right-2 text-xl font-semibold cursor-pointer hover:text-black">&times;</span>
+            <form class="modal-form" onsubmit="return false;">
+                @csrf
+                <h3 class="text-2xl text-center">Форма обратной связи</h3>
+                <div class="success-message text-green-600"></div>
+                <div class="errors-message text-red-600"></div>
+                <label for="name">Имя:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="text">Текст:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
     @endif
     <button id="btn-call" class="btn-call">
         <a href="tel:+7999999999"><img src="{{ asset('/img/phone.png') }}" alt="phone"></a>

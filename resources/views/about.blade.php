@@ -2,9 +2,9 @@
 
 @section('content')
     <section class="about">
-        <div class="container">
+        <div class="container px-5 mx-auto">
             <h2 class="title">О нас</h2>
-            <div class="about-items  my-10 space-y-3 xl:grid xl:grid-cols-2 md:flex md:flex-col">
+            <div class="about-items  my-5 space-y-3 xl:grid xl:grid-cols-2 md:flex md:flex-col">
                 <div class="column-left mr-[40px]">
                     <p class="about-text">Организация имеет свои собственные земельные угодья на которых выращивается зерно. Зерно затем перерабатывается на производстве, расположенном на территории поселков Кормиловка , Старомалиновка и используется для производства кормов для животных, таких как крупы, комбикорма, силос и др.</p>
                     <br>
@@ -13,8 +13,8 @@
                     <p class="about-text"> Организация активно развивается и ведет сотрудничество с многими крупными предприятиями и организациями в регионе и за его пределами. Компания также уделяет внимание экологическим аспектам производства и использует современные технологии, которые позволяют сократить негативное воздействие на окружающую среду.</p>
                     </p>
                 </div>
-                <div class="column-right flex">
-                    <img class="about-img" src="{{ asset('/img/завод.jpg') }}" alt="factory">
+                <div class="column-right flex flex-col justify-center">
+                    <img class="max-w-full w-500 h-auto rounded-2xl" src="{{ asset('/img/завод.jpg') }}" alt="factory">
                 </div>
             </div>
             <div class="gallery">
