@@ -90,9 +90,7 @@
         console.log(response.message)
         form.find('.success-message').text(response.message)
     }).fail(err => {
-        console.log(err.status)
         if(err.status === 422){
-            console.log(err.status)
             let errors = Object.values(err.responseJSON.errors).map(el => { return el[0] });
             $('.errors-message').text(errors)
         }
