@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="catalog h-[90vh]">
+<section class="catalog">
         <div class="container px-20 mx-auto">
             <h2 class="title text-center">Продукция</h2>
             <div class="catalog-items place-items-center mb-[50px] xl:grid xl:grid-cols-3 md:flex md:flex-col">

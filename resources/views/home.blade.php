@@ -33,7 +33,7 @@
             <div class="product-item">
                 <img class="product-img" src="{{ asset('storage').'/'.$product->image }}" alt="product">
                 <h3 class="product-item-title pt-[10px]">{{ $product->name }}</h3>
-                <p class="product-item-text py-[25px]">{{ substr($product->description, 0, 20) }}</p>
+                <p class="product-item-text py-[25px]">{{ substr($product->description, 0,40) }}...</p>
                 <a href="{{ route('productDetails', $product->id) }}">Подробнее</a>
             </div>
             @empty
