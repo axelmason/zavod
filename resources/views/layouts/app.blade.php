@@ -109,7 +109,7 @@
                 <textarea id="message" name="message" rows="5" required></textarea>
                 <div>
                     <input class="mr-2" type="checkbox" id="rules" name="rules" required>
-                    <label for="rules">Согласие с обработкой данных</label>
+                    <label for="rules"> <a href="{{ route('privacy') }}">Согласие с обработкой данных</a></label>
                 </div>
                 <button type="submit">Отправить</button>
             </form>
