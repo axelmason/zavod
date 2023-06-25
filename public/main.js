@@ -7,13 +7,13 @@
     const menu = $('.burger');
 
     menuIcon.click(function() {
-      menu.slideDown(300); // Добавим slideDown() с указанием времени анимации (в миллисекундах)
+      menu.slideDown(300);
       closeMenuIcon.removeClass('hidden');
       menuIcon.addClass('hidden');
     });
 
     closeMenuIcon.click(function() {
-      menu.slideUp(300); // Добавим slideUp() с указанием времени анимации (в миллисекундах)
+      menu.slideUp(300)
       closeMenuIcon.addClass('hidden');
       menuIcon.removeClass('hidden');
     });
@@ -88,16 +88,28 @@
         data: {...data},
     }).done(response => {
         console.log(response.message)
-        form.find('.success-message').text(response.message)
+        form.find('.success-message').text(response.message).show();
+        setTimeout(() => {
+            form.find('.success-message').fadeOut();
+        }, 2500);
     }).fail(err => {
-        if(err.status === 422){
-            let errors = Object.values(err.responseJSON.errors).map(el => { return el[0] });
-            $('.errors-message').text(errors)
+        if (err.status === 422) {
+            let errors = Object.values(err.responseJSON.errors).map(el => {
+                return el[0];
+            });
+            $('.errors-message').text(errors).show();
+            setTimeout(() => {
+                $('.errors-message').fadeOut();
+            }, 2500);
         }
-        if(err.status === 429){
-            $('.errors-message').text('Слишком много запросов')
+        if (err.status === 429) {
+            $('.errors-message').text('Слишком много запросов, подождите немного!').show();
+            setTimeout(() => {
+                $('.errors-message').fadeOut();
+            }, 2500);
         }
     });
+
 
     return false;
   });

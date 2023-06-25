@@ -64,5 +64,5 @@ Route::get('/partners', [PageController::class, 'partners'])->name('partnersPage
 Route::get('/catalog', [PageController::class, 'catalog'])->name('catalogPage');
 Route::get('/contacts', [PageController::class, 'contacts'])->name('contactsPage');
 
-
+Route::view('/privacy','privacy')->name('privacy');
 Route::get('/', [PageController::class, 'home'])->name('home');

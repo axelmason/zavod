@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/feedback/send', [BotController::class, 'send'])->name('sendFeedback')->middleware('throttle:1,1');
+Route::post('/feedback/send', [BotController::class, 'send'])->name('sendFeedback')->middleware('throttle:1,0.1');
